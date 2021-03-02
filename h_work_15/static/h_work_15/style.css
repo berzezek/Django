@@ -4,8 +4,7 @@
     height: 100px;
     margin-top: 10px;
 } */
-img {
-  /* position: absolute; */
-  margin: auto;
-  /* margin-left: 500px; */
+a.h2 {
+  text-decoration: none;
+  color: #463333;
 }
