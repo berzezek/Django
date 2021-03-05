@@ -4,10 +4,12 @@
   <main class="container mb-5">
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto">
       <h2 class="display-3 fw-bold my-5">Страница регистрации</h2>
-    <form method="post" class="form-register">
+    <form method="post" class="form-register p-3">
       {% csrf_token %}
       {{ form.as_p }}
-      <buton class="btn btn-outline-warning py-2" type="submit">Зарегистрироваться!</buton>
+      <button class="btn btn-outline-warning" type="submit">Зарегистрироваться</button>
     </form>
+  <hr>
+    <a href="{% url 'user' %}" class="btn"><p>Уже зарегистрированы? </p></a>
     </div>
 {% endblock %}

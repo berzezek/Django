@@ -1,0 +1,20 @@
+{% extends 'h_work_15/base.html' %}
+
+{% block main %}
+  <main class="container mb-5">
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto">
+      <h2 class="fw-bold mt-5">Кабинет пользователя</h2>
+      <!-- Добавляем блок и делаем ссылки, url будет виден на сервере, импорт urls 1.4 -->
+      <div class="d-flex text-muted py-5">
+        <img class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="64" height="64" src="{{ user.profile.img.url }}">
+        <div class="pt-1 ms-3">
+        <strong class="d-block text-gray-dark pb-1">@{{ user.username }}</strong>
+        {% if user.email %}
+        <p><b>E-mail: </b>{{ user.email }}</p>
+        {% endif %}
+        </div>
+
+      </div>
+      <a href="{% url 'user' %}" class="btn btn-outline-warning"><p>Войти заново</p></a>
+    </div>
+{% endblock %}
