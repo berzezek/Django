@@ -1,24 +1,17 @@
-/* footer {
-    position: absolute;
-    bottom: 0;
-    height: 100px;
-    margin-top: 10px;
-} */
-.nav__reg {
-  text-decoration: none;
-}
 a.h2 {
-  text-decoration: none;
   color: #463333;
 }
 
-a.p-2 {
-  text-decoration: none;
+a {
+  text-decoration: none!important;
+}
+header {
+  background-color: #d26363;
 }
 
 form {
   border-radius: 5px;
-  background-color: #f7f7f7;
+  background-color: #fff937;
 
 }
 .helptext {
@@ -31,4 +24,12 @@ form {
   margin-top: 5px;
   border-radius: 5px;
   padding: 1%
+}
+label {
+  /* font-style: italic; */
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  /* color:grey; */
+  /* font-weight: bold; */
 }

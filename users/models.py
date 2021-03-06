@@ -1,18 +1,35 @@
 from django.db import models
-from django.contrib.auth.models import User # Нужно импортировать табличку User
-# Create your models here.
+from django.contrib.auth.models import User
+from PIL import Image
 
 class Profile(models.Model):
-    # Назвать класс как угодно
-    user = models.OneToOneField(User, on_delete=models.CASCADE) # перед User можно добавить название "Пользователь"
-    # Класс OneToOneField с ссылкой на запись из другой таблице и наоборот ("on_... при удалении - удалить")
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     img = models.ImageField('Фото пользователя', default='default.png', upload_to='user_images')
-    # поле через которое будет загружать, класс ImageField, (def... картинка по умолчанию, upl... папка для загрузки)
+    u_sex = models.ImageField(
+        'Выберите пол',
+        default='',
+        choices=(
+                ('0', ''),
+                ('1', 'Мужской'),
+                ('2', 'Женский'),
+            )
+        )
+
     def __str__(self):
-        return f'Профайл пользователя: {self.user.username}'
-    # Чтобы отображалось нормально (через user можно связаться с другой табличкой... они уже связанны)
-    # Устровить pip install pillow (для работы с изображениями)
-    # делаем миграции и переходим в admin.py (1.1)
-    class Meta: # Поменять название в панели администратора
-        verbose_name = 'Профиль'
-        verbose_name_plural = 'Профили'
+        return f'Профайл пользователя {self.user.username}'
+    def save(self, *args,**kwargs):
+        super().save()
+
+        image = Image.open(self.img.path)
+
+        if image.height > 256 or image.width > 256:
+            resize = (256, 256)
+            image.thumbnail(resize)
+            image.save(self.img.path)
+
+
+
+
+    class Meta:
+        verbose_name = 'Профайл'
+        verbose_name_plural = 'Профайлы'

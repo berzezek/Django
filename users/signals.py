@@ -1,16 +1,15 @@
-# 1.5 В этом файле можно отслеживать сигналы
 from django.contrib.auth.models import User
 from .models import Profile
-from django.db.models.signals import post_save # следить когда идут изменения
-from django.dispatch import receiver # Декоратор при изменении
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
-@receiver(post_save, sender=User) # при создании
+
+@receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
 
-@receiver(post_save, sender=User) # при обновлении
-def create_profile(sender, instance, **kwargs):
-    instance.objects.save()
 
-# далее подключаем сигналы в приложении apps.py 1.6
+@receiver(post_save, sender=User)
+def save_profile(sender, instance, **kwargs):
+    instance.profile.save()
