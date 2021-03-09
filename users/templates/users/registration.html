@@ -7,10 +7,10 @@
     <form method="post" class="form-register p-3">
       {% csrf_token %}
       {{ form.as_p }}
-      <button class="btn btn-outline-warning" type="submit">Зарегистрироваться</button>
+      <button class="btn btn-warning my-5" type="submit">Зарегистрироваться</button>
     </form>
-  <hr>
-    <a href="{% url 'user' %}" class="btn"><p>Уже зарегистрированы? </p></a>
+  <hr class="mt-4">
+    <a href="{% url 'user' %}"><button class="btn btn-primary ms-2" type="submit">Уже зарегистрированы?</button></a>
     </div>
   </main>
 {% endblock %}

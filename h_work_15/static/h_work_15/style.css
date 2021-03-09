@@ -6,12 +6,12 @@ a {
   text-decoration: none!important;
 }
 header {
-  background-color: #d26363;
+  background-color: #ff9d37;
 }
 
 form {
   border-radius: 5px;
-  background-color: #fff937;
+  background-color: #ff9d37;
 
 }
 .helptext {
@@ -32,4 +32,14 @@ label {
   margin-left: 20px;
   /* color:grey; */
   /* font-weight: bold; */
+}
+
+.form-control {
+  border-color: #6c757d!important;
+  background-color: #f3f3f3!important;
+}
+
+#file_upload_button {
+  background-color: black!important;
+  padding: 10px;
 }
