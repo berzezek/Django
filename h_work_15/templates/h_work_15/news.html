@@ -11,22 +11,24 @@
   <form class="p-5">
     <div class="container">
       {% for post in news %}
-      <h3>{{ post.title }}</h3>
-      <hr>
-      <p>{{ post.text }}</p>
-        <div class="row">
+        <h3 class="ms-5">{{ post.title }}</h3>
+        <hr>
+        <p>{{ post.text }}</p>
+        <div class="d-flex">
           <div>
             <img src="{{ post.autor.profile.img.url }}" alt="{{ post.autor }}" class="user-images mb-2">
           </div>
-          <div>
+          <div class="ms-3">
             {% if post.autor %}
-              <p>Автор: {{ post.autor }}</p><p>Дата: {{ post.date }}</p>
+              <p>Автор: <b>{{ post.autor }}</b></p
+              <p>Дата: <b>{{ post.date }}</b></p>
               {% else %}
-              <p>Автор: "Решил остаться неизвестным"</p><p>Дата: {{ post.date }}</p>
+              <p>Автор: <b>"Решил остаться неизвестным"</b></p>
+              <p>Дата: <b>{{ post.date }}</b></p>
             {% endif %}
           </div>
         </div>
-        <hr class="mb-5">
+        <hr class="mb-3">
       {% endfor %}
     </div>
 
