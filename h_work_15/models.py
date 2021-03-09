@@ -9,9 +9,10 @@ class News(models.Model):
     date = models.DateTimeField('Дата',default=timezone.now)
     autor = models.ForeignKey(User, verbose_name='Автор', on_delete=models.CASCADE)
 
+    
 
     views = models.IntegerField('Просмотры', default=1)
-    
+
     def __str__(self):
         return f'{self.title}'
 

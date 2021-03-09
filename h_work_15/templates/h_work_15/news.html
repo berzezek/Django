@@ -6,15 +6,30 @@
 
 {% block main %}
 
-  <h2>Новости</h2>
-  {% for post in news %}
-    <h3>{{ post.title }}</h3>
-    <p>{{ post.text }}</p>
-      {% if post.autor %}
-      <p>Автор: {{ post.autor }}, Дата: {{ post.date }}</p>
-      {% else %}
-      <p>Автор: "Решил остаться неизвестным", Дата: {{ post.date }}</p>
-      {% endif %}
-    <p>{{ post.text }}</p>
-  {% endfor %}
+  <h2 class="mb-5">Новости</h2>
+
+  <form class="p-5">
+    <div class="container">
+      {% for post in news %}
+      <h3>{{ post.title }}</h3>
+      <hr>
+      <p>{{ post.text }}</p>
+        <div class="row">
+          <div>
+            <img src="{{ post.autor.profile.img.url }}" alt="{{ post.autor }}" class="user-images mb-2">
+          </div>
+          <div>
+            {% if post.autor %}
+              <p>Автор: {{ post.autor }}</p><p>Дата: {{ post.date }}</p>
+              {% else %}
+              <p>Автор: "Решил остаться неизвестным"</p><p>Дата: {{ post.date }}</p>
+            {% endif %}
+          </div>
+        </div>
+        <hr class="mb-5">
+      {% endfor %}
+    </div>
+
+  </form>
+
 {% endblock %}
