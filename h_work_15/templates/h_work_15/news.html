@@ -1,7 +1,7 @@
 {% extends 'h_work_15/base.html' %}
 
 {% block title %}
-  Новости
+  {{ title }}
 {% endblock %}
 
 {% block main %}
@@ -16,22 +16,23 @@
         <p>{{ post.text }}</p>
         <div class="d-flex">
           <div>
-            <img src="{{ post.autor.profile.img.url }}" alt="{{ post.autor }}" class="user-images mb-2">
+            <img src="{{ post.autor.profile.img.url }}" alt="{{ post.autor }}" class="user-images mb-2 shadow-lg">
           </div>
           <div class="ms-3">
             {% if post.autor %}
               <p>Автор: <b>{{ post.autor }}</b></p
-              <p>Дата: <b>{{ post.date }}</b></p>
+              <p>Дата: <b>{{ post.date|date:"d E Y в H:i" }}</b></p>
               {% else %}
               <p>Автор: <b>"Решил остаться неизвестным"</b></p>
-              <p>Дата: <b>{{ post.date }}</b></p>
+              <p>Дата: <b>{{ post.date|date:"d E Y в H:i" }}</b></p>
             {% endif %}
           </div>
         </div>
         <hr class="mb-3">
+        <a href="{% url 'news-detail' post.id %}" class="btn btn-warning mt-1 mb-5 ms-2 shadow-lg">Читать далее</a>
       {% endfor %}
     </div>
-
+    <a href="{% url 'news-add' %}" class="btn btn-warning mt-1 mb-5 ms-2 shadow-lg">Добавить статью</a>
   </form>
 
 {% endblock %}

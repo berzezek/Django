@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 # Create your models here.
 class News(models.Model):
@@ -9,7 +10,7 @@ class News(models.Model):
     date = models.DateTimeField('Дата',default=timezone.now)
     autor = models.ForeignKey(User, verbose_name='Автор', on_delete=models.CASCADE)
 
-    
+
 
     views = models.IntegerField('Просмотры', default=1)
 
@@ -19,3 +20,6 @@ class News(models.Model):
     class Meta:
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
+
+    def get_absolute_url(self):
+        return reverse('news-detail', kwargs={'pk': self.pk})
