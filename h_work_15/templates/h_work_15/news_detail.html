@@ -14,17 +14,11 @@
       <hr>
       <p>{{ object.text }}</p>
       <div class="d-flex">
-        <div>
-          <img src="{{ object.autor.profile.img.url }}" alt="{{ object.autor }}" class="user-images mb-2 shadow-lg">
-        </div>
+
         <div class="ms-3">
-          {% if object.autor %}
-            <p>Автор: <b>{{ object.autor }}</b></p
-            <p>Дата: <b>{{ object.date|date:"d E Y в H:i" }}</b></p>
-            {% else %}
-            <p>Автор: <b>"Решил остаться неизвестным"</b></p>
-            <p>Дата: <b>{{ object.date|date:"d E Y в H:i" }}</b></p>
-          {% endif %}
+          <p>Автор: <b>{{ object.autor }}</b></p>
+          <a href="{{ object.long_link }}" target="_blank"><p class="form__button">{{ object.slug }}</p></a>
+
         </div>
       </div>
       <hr class="mb-3">

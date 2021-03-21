@@ -23,33 +23,36 @@ class UserRegisterForm(UserCreationForm):
         help_text='Пароль не должен быть маленьким и простым',
         widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Введите пароль'})
     )
-    password2 = forms.CharField(
-        label='Подтвердите пароль',
-        required=True,
-        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Повторно введите пароль'})
-    )
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        del self.fields['password2']
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ['username', 'email', 'password1']
 
 
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField(
         label='Введите Email',
-        required=True,
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите Email'})
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите E-mail'})
     )
     username = forms.CharField(
         label='Введите логин',
-        required=True,
+        required=False,
         help_text='Нельзя вводить символы: @, /, _',
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите логин'})
+    )
+    password1 = forms.CharField(
+        label='Введите новый пароль',
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Пароль можно и поменять'})
     )
 
     class Meta:
         model = User
-        fields = ['username', 'email']
+        fields = ['username', 'email', 'password1']
 
 class ProfileImageForm(forms.ModelForm):
     img = forms.ImageField(

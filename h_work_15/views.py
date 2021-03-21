@@ -98,3 +98,5 @@ class DeleteNewsView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
 
         return False
+
+# class LinksDetails(DetailView)
