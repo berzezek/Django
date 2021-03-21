@@ -47,7 +47,7 @@ class NewsDetailView(DetailView):
 class CreateNewsView(LoginRequiredMixin, CreateView):
     model = News
     template_name='h_work_15/news_form.html'
-    fields = ['title', 'text']
+    fields = ['title', 'slug', 'long_link']
 
     def form_valid(self, form):
         form.instance.autor = self.request.user
@@ -64,7 +64,7 @@ class UpdateNewsView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = News
     template_name = 'h_work_15/news_form.html'
 
-    fields = ['title', 'text']
+    fields = ['title', 'slug', 'long_link']
 
 
     def get_context_data(self, **kwards):

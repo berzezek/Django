@@ -77,4 +77,4 @@ class ProfileImageForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        fields = ['u_sex', 'mailcheck', 'img',]
+        fields = ['u_sex', 'mailcheck', 'img']

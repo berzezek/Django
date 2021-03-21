@@ -22,12 +22,7 @@ class Profile(models.Model):
         )
     mailcheck = models.BooleanField(
         'Соглашение про почту',
-        # max_length=1,
-        # default='',
-        # choices=(
-        #         ('0', 'Yes'),
-        #         ('2', 'NO'),
-        #         )
+        default=True
         )
 
     # u_date = models.DateField(

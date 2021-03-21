@@ -5,9 +5,10 @@ from django.urls import reverse
 
 # Create your models here.
 class News(models.Model):
-    title = models.CharField('Название статьи', max_length=100, unique=True)
-    text = models.TextField('Основной текст статьи')
-    date = models.DateTimeField('Дата',default=timezone.now)
+    slug = models.SlugField('Короткая ссылка', max_length=100, default="")
+    long_link = models.TextField('Длинная ссылка')
+    date = models.DateTimeField('Дата', default=timezone.now)
+    title = models.CharField('Описание', max_length=100)
     autor = models.ForeignKey(User, verbose_name='Автор', on_delete=models.CASCADE)
 
 
@@ -18,8 +19,8 @@ class News(models.Model):
         return f'{self.title}'
 
     class Meta:
-        verbose_name = 'Новость'
-        verbose_name_plural = 'Новости'
+        verbose_name = 'Ссылку'
+        verbose_name_plural = 'Ссылки'
 
     def get_absolute_url(self):
         return reverse('news-detail', kwargs={'pk': self.pk})
