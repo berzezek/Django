@@ -1,4 +1,4 @@
-{% extends 'h_work_15/base.html' %}
+{% extends 'link/base.html' %}
 
 {% block title %}
 Главная
@@ -10,7 +10,7 @@
       <h1 class="display-3 fw-bold mt-5">Простой и удобный сервис</h1>
       <p class="lead">Делаем работу быстро и качественно</p>
       <!-- <button class="btn btn-lg btn-primary" href="uslugi">Посмотреть услуги</button> -->
-      <a class="btn btn-lg btn-primary shadow-lg rounded" href="uslugi">Посмотреть услуги</a>
+      <a class="btn btn-lg btn-primary shadow-lg rounded" href="{% url 'uslugi' %}">Посмотреть услуги</a>
     </div>
   </main>
     <!-- {{ news }} -->

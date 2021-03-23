@@ -38,9 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'h_work_15',
     'users.apps.UsersConfig',
-    # Замена 'users.apps.UsersConfig'
+    'link.apps.LinkConfig',
 ]
 
 MIDDLEWARE = [

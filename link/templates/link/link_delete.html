@@ -1,4 +1,4 @@
-{% extends 'h_work_15/base.html' %}
+{% extends 'link/base.html' %}
 
 {% block title %}
   Удаление статьи
@@ -11,7 +11,7 @@
     <form method="post" class="container form-register p-5 shadow-lg rounded">
       {% csrf_token %}
       <button class="btn btn-danger my-5" type="submit">Да, удалить</button>
-      <a href="{% url 'news-detail' object.id %}" class="btn btn-warning ms-5">Нет, отмена</a>
+      <a href="{% url 'link-detail' object.slug %}" class="btn btn-warning ms-5">Нет, отмена</a>
     </form>
   <hr class="mt-4">
     <!-- <a href="{% url 'user' %}"><button class="btn btn-primary ms-2" type="submit">Уже зарегистрированы?</button></a> -->
